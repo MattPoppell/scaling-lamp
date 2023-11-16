@@ -35,8 +35,8 @@ type User {
   type Query {
     users: [User]
     user(username: String!): User
-    Venues(username: String): [Venue]
-    Venue(VenueId: ID!): Venue
+    venues(username: String): [Venue]
+    venue(VenueId: ID!): Venue
     me: User
   }
 
