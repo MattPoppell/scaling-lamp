@@ -1,12 +1,12 @@
 const db = require('../config/connection');
 const { User, Thought } = require('../models');
 const userSeeds = require('./userSeeds.json');
-const thoughtSeeds = require('./thoughtSeeds.json');
+const commentSeeds = require('./commentSeeds.json');
 const cleanDB = require('./cleanDB');
 
 db.once('open', async () => {
   try {
-    await cleanDB('Thought', 'thoughts');
+    await cleanDB('Comment', 'comments');
 
     await cleanDB('User', 'users');
 
