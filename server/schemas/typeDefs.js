@@ -16,7 +16,6 @@ type User {
     preferredGenre: String
     catering: Boolean
     barsNearby: Boolean
-    createdAt: String
     comments: [Comment]!
   }
 
@@ -35,7 +34,7 @@ type User {
   type Query {
     users: [User]
     user(username: String!): User
-    venues(username: String): [Venue]
+    venues: [Venue]
     venue(VenueId: ID!): Venue
     me: User
   }
@@ -43,7 +42,7 @@ type User {
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addVenue(venueText: String!): Venue
+    addVenue(name: String!, city: String, state: String, capacity: String, preferredGenre: String, catering: Boolean, barsNearby: Boolean): Venue
     addComment(venueId: ID!, commentText: String!): Venue
     removeVenue(venueId: ID!): Venue
     removeComment(venueId: ID!, commentId: ID!): Venue

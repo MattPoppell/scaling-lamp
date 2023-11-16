@@ -34,8 +34,13 @@ const venueSchema = new Schema({
   barsNearby: {
     type: Boolean,
     required: false,
-  }
-
+  },
+  comments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Comment',
+    },
+  ],
 });
 
 

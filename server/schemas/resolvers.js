@@ -4,10 +4,10 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('venues');
+      return User.find();
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('venues');
+      return User.findOne({ username });
     },
     venues: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -49,31 +49,41 @@ const resolvers = {
       return { token, user };
     },
 
-    addVenue: async (parent, { venueText }, context) => {
+    addVenue: async (parent, { name, city, state, capacity, preferredGenre, catering, barsNearby }, context) => {
       if (context.user) {
         const venue = await Venue.create({
-          venueText,
-          venueAuthor: context.user.username,
+          name,
+          city,
+          state,
+          capacity,
+          preferredGenre,
+          catering,
+          barsNearby
         });
-
+    
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { venues: comment._id } }
+          { $addToSet: { venues: venue._id } }
         );
-
+    
         return venue;
       }
-      throw AuthenticationError;
-      ('You need to be logged in!');
+      throw new AuthenticationError('You need to be logged in!');
     },
+    
 
     addComment: async (parent, { venueId, commentText }, context) => {
       if (context.user) {
-        return Venue.findOneAndUpdate(
+        const comment = await Comment.create({
+          commentText,
+          commentAuthor: context.user.username,
+        });
+  
+        await Venue.findOneAndUpdate(
           { _id: venueId },
           {
             $addToSet: {
-              comments: { commentText, commentAuthor: context.user.username },
+              comments: comment._id,
             },
           },
           {
@@ -81,8 +91,11 @@ const resolvers = {
             runValidators: true,
           }
         );
+  
+        return comment;
       }
-      throw AuthenticationError;
+  
+      throw new AuthenticationError('You need to be logged in!');
     },
 
     removeVenue: async (parent, { venueId }, context) => {
