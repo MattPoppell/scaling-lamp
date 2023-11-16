@@ -13,7 +13,7 @@ type User {
     city: String
     state: String
     capacity: String
-    preferredGenre: String
+    preferredGenre: [String]
     catering: Boolean
     barsNearby: Boolean
     comments: [Comment]!

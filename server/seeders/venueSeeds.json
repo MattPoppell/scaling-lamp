@@ -1,0 +1,69 @@
+[
+  {
+    "name": "Grantski Records",
+    "city": "Augusta",
+    "state": "Georgia",
+    "capacity": 181,
+    "preferredGenre": "None",
+    "catering": false,
+    "barsNearby": true,
+    "createdAt": "1236PMToday",
+    "comments": ["Cool owner."]
+  },
+  {
+    "name": "New Brookland Tavern",
+    "city": "Columbia",
+    "state": "South Carolina",
+    "capacity": 220,
+    "preferredGenre": ["metal", "alternative", "hiphop"],
+    "catering": false,
+    "barsNearby": true,
+    "createdAt": "1236PMToday",
+    "comments": []
+  },
+
+  {
+    "name": "The Odd",
+    "city": "Asheville",
+    "state": "North Carolina",
+    "capacity": "99",
+    "preferredGenre": ["None"],
+    "catering": true,
+    "barsNearby": true,
+    "createdAt": "1236PMToday",
+    "comments": ["Odd venue."]
+  },
+  {
+    "name": "White Horse, Black Mountain",
+    "city": "Black Mountain",
+    "state": "North Carolina",
+    "capacity": "75",
+    "preferredGenre": ["jazz", "country", "alternative"],
+    "catering": true,
+    "barsNearby": true,
+    "createdAt": "1236PMToday",
+    "comments": []
+  },
+  {
+    "name": "The 40 Watt",
+    "city": "Athens",
+    "state": "Georgia",
+    "capacity": 460,
+    "preferredGenre": ["None"],
+    "catering": true,
+    "barsNearby": true,
+    "createdAt": "1254PMToday",
+    "comments": []
+  },
+  {
+    "name": "Reggie's",
+    "city": "Chicago",
+    "state": "Illinois",
+    "capacity": 500,
+    "preferredGenre": ["metal", "rock", "indie", "alternative"],
+    "catering": true,
+    "barsNearby": true,
+    "createdAt": "1236PMToday",
+    "comments": []
+  }
+]

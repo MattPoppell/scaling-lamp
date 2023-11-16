@@ -23,7 +23,7 @@ const venueSchema = new Schema({
     trim: true,
   },
   preferredGenre: {
-    type: String,
+    type: Array,
     required: false,
     trim: true,
   },
@@ -35,12 +35,29 @@ const venueSchema = new Schema({
     type: Boolean,
     required: false,
   },
-  comments: [
+ comments: {type: Array}
+  [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Comment',
+      commentText: {
+        type: String,
+        required: true,
+        minlength: 1,
+        maxlength: 280,
+      },
+      commentAuthor: {
+        type: String,
+        required: true,
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
+      },
     },
   ],
+
+
+
 });
 
 
