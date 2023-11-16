@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import './App.css'
-import Form from './pages/Loginpage'
+import Home from './pages/Homepage'
 // import HomePage from './assets/pages/Homepage';
 
 function App() {
-  return <Form />;
+  return <Home />;
 }
 
 export default App

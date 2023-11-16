@@ -22,7 +22,7 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <VenueList
+            < VenueList
               venue={venue}
               title="Liked the venue???"
             />
@@ -36,4 +36,4 @@ const Home = () => {
 
 
 
-export default HomePage
+export default Home
