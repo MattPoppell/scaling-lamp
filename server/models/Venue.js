@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
 const venueSchema = new Schema({
   name: {
@@ -35,14 +36,25 @@ const venueSchema = new Schema({
     type: Boolean,
     required: false,
   },
- comments: {
-    type: String,
-    required: false
- }
-  
-
-
-
+  comments: [
+    {
+      commentText: {
+        type: String,
+        required: 'You need to leave something!',
+        trim: true,
+      },
+      commentAuthor: {
+        type: String,
+        required: true,
+        trim: true,
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
+      },
+    },
+  ],
 });
 
 

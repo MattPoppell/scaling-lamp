@@ -6,9 +6,7 @@
     "capacity": 181,
     "preferredGenre": "None",
     "catering": false,
-    "barsNearby": true,
-    "createdAt": "1236PMToday",
-    "comments": "Cool owner."
+    "barsNearby": true
   },
   {
     "name": "New Brookland Tavern",
@@ -17,9 +15,7 @@
     "capacity": 220,
     "preferredGenre": ["metal", "alternative", "hiphop"],
     "catering": false,
-    "barsNearby": true,
-    "createdAt": "1236PMToday",
-    "comments": ""
+    "barsNearby": true
   },
 
   {
@@ -29,9 +25,7 @@
     "capacity": "99",
     "preferredGenre": ["None"],
     "catering": true,
-    "barsNearby": true,
-    "createdAt": "1236PMToday",
-    "comments": "Odd venue."
+    "barsNearby": true
   },
   {
     "name": "White Horse, Black Mountain",
@@ -40,9 +34,7 @@
     "capacity": "75",
     "preferredGenre": ["jazz", "country", "alternative"],
     "catering": true,
-    "barsNearby": true,
-    "createdAt": "1236PMToday",
-    "comments": ""
+    "barsNearby": true
   },
   {
     "name": "The 40 Watt",
@@ -51,9 +43,7 @@
     "capacity": 460,
     "preferredGenre": ["None"],
     "catering": true,
-    "barsNearby": true,
-    "createdAt": "1254PMToday",
-    "comments": ""
+    "barsNearby": true
   },
   {
     "name": "Reggie's",
@@ -62,8 +52,6 @@
     "capacity": 500,
     "preferredGenre": ["metal", "rock", "indie", "alternative"],
     "catering": true,
-    "barsNearby": true,
-    "createdAt": "1236PMToday",
-    "comments": ""
+    "barsNearby": true
   }
 ]

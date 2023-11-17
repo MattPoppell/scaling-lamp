@@ -9,18 +9,15 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-    venues: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Venue.find(params).sort({ createdAt: -1 });
+    venues: async () => {
+      return Venue.find();
     },
     venue: async (parent, { venueId }) => {
       return Venue.findOne({ _id: venueId });
     },
-   
-
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('venues');
+        return User.findOne({ _id: context.user._id });
       }
       throw AuthenticationError;
     },
@@ -51,23 +48,29 @@ const resolvers = {
       return { token, user };
     },
 
-    addVenue: async (parent, { venueText }, context) => {
+    addVenue: async (parent, { name, city, state, capacity, preferredGenre, catering, barsNearby }, context) => {
+
       if (context.user) {
         const venue = await Venue.create({
-          venueText,
-          venueAuthor: context.user.username,
+          name,
+          city,
+          state,
+          capacity,
+          preferredGenre,
+          catering,
+          barsNearby
         });
-
+    
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { venues: comment._id } }
+          { $addToSet: { venues: venue._id } }
         );
-
+    
         return venue;
+      } else {
+        throw new AuthenticationError('You need to be logged in!');
       }
-      throw AuthenticationError;
-      ('You need to be logged in!');
-    },
+    },    
 
     addComment: async (parent, { venueId, commentText }, context) => {
       if (context.user) {
@@ -88,21 +91,27 @@ const resolvers = {
     },
 
     removeVenue: async (parent, { venueId }, context) => {
-      if (context.user) {
+      if (context.user !== null) {
+
         const venue = await Venue.findOneAndDelete({
-          _id: venueId,
-          venueAuthor: context.user.username,
+          _id: venueId
         });
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { venues: venue._id } }
-        );
-
-        return venue;
+        if (venue !== null) {
+          await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $pull: { venues: venue._id } }
+          );
+    
+          return venue;
+        } else {
+          throw new Error("Venue not found or already deleted.");
+        }
+      } else {
+        throw new AuthenticationError("User not authenticated.");
       }
-      throw AuthenticationError;
     },
+    
     
     removeComment: async (parent, { venueId, commentId }, context) => {
       if (context.user) {
