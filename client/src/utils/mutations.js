@@ -54,3 +54,30 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+export const REMOVE_COMMENT = gql`
+  mutation removeComment($venueId: ID!, $commentText: String!) {
+    removeComment(venueId: $venueId) {
+      _id
+      
+      comments {
+        _id
+        commentText
+        createdAt
+      }
+    }
+  }
+`;
+
+export const REMOVE_VENUE = gql`
+  mutation removeVenue($venueId: ID!, $commentText: String!) {
+    removeVenue(venueId: $venueId) {
+      _id
+      
+      comments {
+        _id
+        commentText
+        createdAt
+      }
+    }
+  }
+`;
