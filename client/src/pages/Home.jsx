@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useQuery } from '@apollo/client';
 
 import VenueForm from '../components/VenueForm';
@@ -6,7 +8,7 @@ import VenueList from '../components/VenueList';
 import { QUERY_VENUES } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_VENUE);
+  const { loading, data } = useQuery(QUERY_VENUES);
   const venues = data?.venues || [];
 
   return (
@@ -23,7 +25,7 @@ const Home = () => {
             <div>Loading...</div>
           ) : (
             <VenueList
-              venue={venue}
+              venue={venues}
               title="Liked the venue???"
             />
           )}
@@ -36,4 +38,4 @@ const Home = () => {
 
 
 
-export default HomePage
+export default Home;

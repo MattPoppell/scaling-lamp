@@ -2,38 +2,29 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_VENUE } from '../../utils/mutations';
-import { QUERY_VENUES, QUERY_ME } from '../../utils/queries'
+import { ADD_COMMENT } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
-const VenueForm = () => {
-  const [venueText, setVenueText] = useState('');
-
+const CommentForm = ({ venueId }) => {
+  const [commentText, setCommentText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addVenue, { error }] = useMutation
-  (ADD_VENUE, {
-    refetchQueries: [
-      QUERY_VENUES,
-      'getVENUES',
-      QUERY_ME,
-      'me'
-    ]
-  });
+  const [addComment, { error }] = useMutation(ADD_COMMENT);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const { data } = await addVenue({
+      const { data } = await addComment({
         variables: {
-          venueTextText,
-          venueAuthor: Auth.getProfile().data.username,
+          venueId,
+          commentText,
+          commentAuthor: Auth.getProfile().data.username,
         },
       });
 
-      setVenueText('');
+      setCommentText('');
     } catch (err) {
       console.error(err);
     }
@@ -42,15 +33,15 @@ const VenueForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'venueText' && value.length <= 280) {
-      setVenueText(value);
+    if (name === 'commentText' && value.length <= 280) {
+      setCommentText(value);
       setCharacterCount(value.length);
     }
   };
 
   return (
     <div>
-      <h3>What's on your mind?</h3>
+      <h4>What are your thoughts about this Venue?</h4>
 
       {Auth.loggedIn() ? (
         <>
@@ -60,6 +51,7 @@ const VenueForm = () => {
             }`}
           >
             Character Count: {characterCount}/280
+            {error && <span className="ml-2">{error.message}</span>}
           </p>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
@@ -67,9 +59,9 @@ const VenueForm = () => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="thoughtText"
-                placeholder="Here's a new thought..."
-                value={thoughtText}
+                name="commentText"
+                placeholder="Add your comment..."
+                value={commentText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -78,19 +70,14 @@ const VenueForm = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Venue
+                Add Comment
               </button>
             </div>
-            {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
-                {error.message}
-              </div>
-            )}
           </form>
         </>
       ) : (
         <p>
-          You need to be logged in to see the Venue. Please{' '}
+          You need to be logged in to share your thoughts. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
@@ -98,4 +85,4 @@ const VenueForm = () => {
   );
 };
 
-export default VenueForm;
+export default CommentForm;
