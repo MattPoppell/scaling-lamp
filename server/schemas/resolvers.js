@@ -18,6 +18,20 @@ const resolvers = {
     venueName: async (parent, { venueName }) => {
       return Venue.findOne({ name: venueName });
     },
+    venueCity: async (parent, { venueCity }) => {
+      return Venue.find({ city: venueCity });
+    },
+    venueState: async (parent, { venueState }) => {
+      return Venue.find({ state: venueState });
+    },
+    venueGenre: async (parent, { venuePreferredGenres }) => {
+      return Venue.find({ preferredGenre: venuePreferredGenres });
+    },
+    venueFood: async (parent, { venueFood }) => {
+      return Venue.find({ catering: venueFood });
+    },
+    
+    
     
 
     me: async (parent, args, context) => {
