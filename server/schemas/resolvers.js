@@ -74,11 +74,7 @@ const resolvers = {
           { _id: venueId },
           {
             $addToSet: {
-<<<<<<< HEAD
-              comments: comment,
-=======
               comments: { commentText, commentAuthor: context.user.username },
->>>>>>> c0f2c4bada4afdf0a727898cdff571034eb36e43
             },
           },
           {
@@ -92,13 +88,12 @@ const resolvers = {
 
     removeVenue: async (parent, { venueId }, context) => {
       if (context.user !== null) {
-        console.log(venueId)
 
         const venue = await Venue.findOneAndDelete({
           _id: venueId,
           venueAuthor: context.user.username,
         });
-    
+
         if (venue !== null) {
           await User.findOneAndUpdate(
             { _id: context.user._id },
