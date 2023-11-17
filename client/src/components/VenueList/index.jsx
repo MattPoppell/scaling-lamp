@@ -7,7 +7,7 @@ venues,
   showName = true,
   showUsername = true,
 }) => {
-  if (!venue.length) {
+  if (!venues || !venues.length) {
     return <h3>No Venue Yet</h3>;
   }
 
@@ -25,7 +25,7 @@ venues,
                 >
                   {venue.venueAuthor} <br />
                   <span style={{ fontSize: '1rem' }}>
-                    had this venue on {thought.createdAt}
+                    had this venue on {venue.createdAt}
                   </span>
                 </Link>
               ) : (
@@ -41,7 +41,7 @@ venues,
             </div>
             <Link
               className="btn btn-primary btn-block btn-squared"
-              to={`/thoughts/${thought._id}`}
+              to={`/venues/${venue._id}`}
             >
               Join the discussion on this venue.
             </Link>
