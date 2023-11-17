@@ -41,12 +41,6 @@ const venueSchema = new Schema({
       ref: 'Comment',
     },
   ],
-
-
-
-
-
-
 });
 
 

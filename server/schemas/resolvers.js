@@ -9,9 +9,8 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-    venues: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Venue.find(params).sort({ createdAt: -1 });
+    venues: async () => {
+      return Venue.find();
     },
     venue: async (parent, { venueId }) => {
       return Venue.findOne({ _id: venueId });
@@ -87,21 +86,28 @@ const resolvers = {
     },
 
     removeVenue: async (parent, { venueId }, context) => {
-      if (context.user) {
+      if (context.user !== null) {
+
         const venue = await Venue.findOneAndDelete({
           _id: venueId,
           venueAuthor: context.user.username,
         });
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { venues: venue._id } }
-        );
-
-        return venue;
+        if (venue !== null) {
+          await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $pull: { venues: venue._id } }
+          );
+    
+          return venue;
+        } else {
+          throw new Error("Venue not found or already deleted.");
+        }
+      } else {
+        throw new AuthenticationError("User not authenticated.");
       }
-      throw AuthenticationError;
     },
+    
     
     removeComment: async (parent, { venueId, commentId }, context) => {
       if (context.user) {
