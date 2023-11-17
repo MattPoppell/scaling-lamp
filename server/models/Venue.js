@@ -39,10 +39,6 @@ const venueSchema = new Schema({
     type: String,
     required: false
  }
-  
-
-
-
 });
 
 
