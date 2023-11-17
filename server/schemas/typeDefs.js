@@ -16,7 +16,7 @@ type User {
     preferredGenre: [String]
     catering: Boolean
     barsNearby: Boolean
-    comments: [Comment]!
+    comments: [Comment]
   }
 
   type Comment {

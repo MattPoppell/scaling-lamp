@@ -48,23 +48,29 @@ const resolvers = {
       return { token, user };
     },
 
-    addVenue: async (parent, { venueText }, context) => {
+    addVenue: async (parent, { name, city, state, capacity, preferredGenre, catering, barsNearby }, context) => {
+
       if (context.user) {
         const venue = await Venue.create({
-          venueText,
-          venueAuthor: context.user.username,
+          name,
+          city,
+          state,
+          capacity,
+          preferredGenre,
+          catering,
+          barsNearby
         });
-
+    
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { venues: comment._id } }
+          { $addToSet: { venues: venue._id } }
         );
-
+    
         return venue;
+      } else {
+        throw new AuthenticationError('You need to be logged in!');
       }
-      throw AuthenticationError;
-      ('You need to be logged in!');
-    },
+    },    
 
     addComment: async (parent, { venueId, commentText }, context) => {
       if (context.user) {
@@ -88,8 +94,7 @@ const resolvers = {
       if (context.user !== null) {
 
         const venue = await Venue.findOneAndDelete({
-          _id: venueId,
-          venueAuthor: context.user.username,
+          _id: venueId
         });
 
         if (venue !== null) {
