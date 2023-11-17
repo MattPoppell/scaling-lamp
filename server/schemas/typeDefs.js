@@ -37,6 +37,10 @@ type User {
     venues: [Venue]
     venue(venueId: ID): Venue
     venueName(venueName: String): Venue
+    venueGenre(preferredGenre: String): [Venue]
+    venueState(venueState: String): [Venue]
+    venueCity(venueCity: String): [Venue]
+    venueFood(venueFood: Boolean): [Venue]
     me: User
   }
 
@@ -47,7 +51,6 @@ type User {
     addComment(venueId: ID!, commentText: String!): Venue
     removeVenue(venueId: ID!): Venue
     removeComment(venueId: ID!, commentId: ID!): Venue
-    updateComment(venueId: ID!, commentId: ID!, updatedCommentText: String!): Venue
   }
 `;
 
