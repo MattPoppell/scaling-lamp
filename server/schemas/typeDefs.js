@@ -35,7 +35,8 @@ type User {
     users: [User]
     user(username: String!): User
     venues: [Venue]
-    venue(venueId: ID!): Venue
+    venue(venueId: ID): Venue
+    venueName(venueName: String): Venue
     me: User
   }
 
