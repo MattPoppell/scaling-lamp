@@ -35,12 +35,14 @@ const venueSchema = new Schema({
     type: Boolean,
     required: false,
   },
-  comments: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Comment',
-    },
-  ],
+ comments: {
+    type: String,
+    required: false
+ }
+  
+
+
+
 });
 
 
