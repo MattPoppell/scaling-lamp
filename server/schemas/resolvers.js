@@ -18,6 +18,21 @@ const resolvers = {
     venueName: async (parent, { venueName }) => {
       return Venue.findOne({ name: venueName });
     },
+    venueCity: async (parent, { venueCity }) => {
+      return Venue.find({ city: venueCity });
+    },
+    venueState: async (parent, { venueState }) => {
+      return Venue.find({ state: venueState });
+    },
+    venueGenre: async (parent, { venuePreferredGenres }) => {
+      return Venue.find({ preferredGenre: venuePreferredGenres });
+    },
+    venueFood: async (parent, { venueFood }) => {
+      return Venue.find({ catering: venueFood });
+    },
+    
+    
+    
 
     me: async (parent, args, context) => {
       if (context.user) {
@@ -133,36 +148,6 @@ const resolvers = {
         );
       }
       throw AuthenticationError;
-    },
-
-    updateComment: async (parent, { venueId, commentId, updatedCommentText }, context) => {
-      if (!context.user) {
-        throw new AuthenticationError('User not authenticated.');
-      }
-    
-      const existingVenue = await Venue.findOne({
-        _id: venueId,
-        'comments._id': commentId,
-      });
-    
-      if (!existingVenue) {
-        throw new UserInputError('Venue or Comment not found.');
-      }
-    
-      const updatedVenue = await Venue.findOneAndUpdate(
-        {
-          _id: venueId,
-          'comments._id': commentId,
-        },
-        {
-          $set: {
-            'comments.$.commentText': updatedCommentText,
-          },
-        },
-        { new: true, runValidators: true, lean: true }
-      );
-    
-      return updatedVenue;
     },
   },
 };
