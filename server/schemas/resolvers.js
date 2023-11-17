@@ -16,6 +16,8 @@ const resolvers = {
     venue: async (parent, { venueId }) => {
       return Venue.findOne({ _id: venueId });
     },
+   
+
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate('venues');
@@ -49,41 +51,31 @@ const resolvers = {
       return { token, user };
     },
 
-    addVenue: async (parent, { name, city, state, capacity, preferredGenre, catering, barsNearby }, context) => {
+    addVenue: async (parent, { venueText }, context) => {
       if (context.user) {
         const venue = await Venue.create({
-          name,
-          city,
-          state,
-          capacity,
-          preferredGenre,
-          catering,
-          barsNearby
+          venueText,
+          venueAuthor: context.user.username,
         });
-    
+
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { venues: venue._id } }
+          { $addToSet: { venues: comment._id } }
         );
-    
+
         return venue;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw AuthenticationError;
+      ('You need to be logged in!');
     },
-    
 
     addComment: async (parent, { venueId, commentText }, context) => {
       if (context.user) {
-        const comment = await Comment.create({
-          commentText,
-          commentAuthor: context.user.username,
-        });
-  
-        await Venue.findOneAndUpdate(
+        return Venue.findOneAndUpdate(
           { _id: venueId },
           {
             $addToSet: {
-              comments: comment._id,
+              comments: { commentText, commentAuthor: context.user.username },
             },
           },
           {
@@ -91,11 +83,8 @@ const resolvers = {
             runValidators: true,
           }
         );
-  
-        return comment;
       }
-  
-      throw new AuthenticationError('You need to be logged in!');
+      throw AuthenticationError;
     },
 
     removeVenue: async (parent, { venueId }, context) => {

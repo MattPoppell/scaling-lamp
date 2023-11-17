@@ -8,7 +8,7 @@
     "catering": false,
     "barsNearby": true,
     "createdAt": "1236PMToday",
-    "comments": ["Cool owner."]
+    "comments": "Cool owner."
   },
   {
     "name": "New Brookland Tavern",
@@ -19,7 +19,7 @@
     "catering": false,
     "barsNearby": true,
     "createdAt": "1236PMToday",
-    "comments": []
+    "comments": ""
   },
 
   {
@@ -31,7 +31,7 @@
     "catering": true,
     "barsNearby": true,
     "createdAt": "1236PMToday",
-    "comments": ["Odd venue."]
+    "comments": "Odd venue."
   },
   {
     "name": "White Horse, Black Mountain",
@@ -42,7 +42,7 @@
     "catering": true,
     "barsNearby": true,
     "createdAt": "1236PMToday",
-    "comments": []
+    "comments": ""
   },
   {
     "name": "The 40 Watt",
@@ -53,7 +53,7 @@
     "catering": true,
     "barsNearby": true,
     "createdAt": "1254PMToday",
-    "comments": []
+    "comments": ""
   },
   {
     "name": "Reggie's",
@@ -64,6 +64,6 @@
     "catering": true,
     "barsNearby": true,
     "createdAt": "1236PMToday",
-    "comments": []
+    "comments": ""
   }
 ]

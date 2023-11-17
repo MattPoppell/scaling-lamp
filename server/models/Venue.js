@@ -35,26 +35,11 @@ const venueSchema = new Schema({
     type: Boolean,
     required: false,
   },
- comments: {type: Array}
-  [
-    {
-      commentText: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 280,
-      },
-      commentAuthor: {
-        type: String,
-        required: true,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
-      },
-    },
-  ],
+ comments: {
+    type: String,
+    required: false
+ }
+  
 
 
 
