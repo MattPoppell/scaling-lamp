@@ -15,6 +15,11 @@ const resolvers = {
     venue: async (parent, { venueId }) => {
       return Venue.findOne({ _id: venueId });
     },
+    venueName: async (parent, { venueName }) => {
+      return Venue.findOne({ name: venueName });
+    },
+    
+
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id });
