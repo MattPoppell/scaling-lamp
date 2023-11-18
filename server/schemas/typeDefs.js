@@ -52,7 +52,7 @@ type User {
     removeVenue(venueId: ID!): Venue
     removeComment(venueId: ID!, commentId: ID!): Venue
     updateComment(venueId: ID!, commentId: ID!, updatedCommentText: String!): Venue
-   
+    updateVenue(venueId: ID!, name: String, city: String, capacity: String, preferredGenre: String, catering: Boolean, barsNearby: Boolean): Venue
   }
 `;
 
