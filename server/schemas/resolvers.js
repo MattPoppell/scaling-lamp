@@ -130,6 +130,38 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+
+    updateComment: async (parent, { venueId, commentId, updatedCommentText }, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('User not authenticated.');
+      }
+    
+      const existingVenue = await Venue.findOne({
+        _id: venueId,
+        'comments._id': commentId,
+      });
+    
+      if (!existingVenue) {
+        throw new UserInputError('Venue or Comment not found.');
+      }
+    
+      const updatedVenue = await Venue.findOneAndUpdate(
+        {
+          _id: venueId,
+          'comments._id': commentId,
+        },
+        {
+          $set: {
+            'comments.$.commentText': updatedCommentText,
+          },
+        },
+        { new: true, runValidators: true, lean: true }
+      );
+    
+      return updatedVenue;
+    },
+
+    
   },
 };
 
