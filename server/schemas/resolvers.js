@@ -180,7 +180,39 @@ const resolvers = {
       return updatedVenue;
     },
 
+    updateVenue: async (_, { venueId, name, city, state, capacity, preferredGenre, catering, barsNearby }, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('You need to be logged in!');
+      }
     
+      try {
+        const existingVenue = await Venue.findOneAndUpdate(
+          { _id: venueId },
+          {
+            $set: {
+              name,
+              city,
+              state,
+              capacity,
+              preferredGenre,
+              catering,
+              barsNearby,
+            },
+          },
+          { new: true }
+        );
+    
+        if (existingVenue) {
+
+          return existingVenue;
+        }
+    
+        throw new UserInputError('Venue not found.');
+      } catch (error) {
+        console.error('Error updating venue:', error);
+        throw new UserInputError('Error updating venue.');
+      }
+    },
   },
 };
 
