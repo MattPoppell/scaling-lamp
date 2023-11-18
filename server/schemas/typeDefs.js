@@ -51,6 +51,8 @@ type User {
     addComment(venueId: ID!, commentText: String!): Venue
     removeVenue(venueId: ID!): Venue
     removeComment(venueId: ID!, commentId: ID!): Venue
+    updateComment(venueId: ID!, commentId: ID!, updatedCommentText: String!): Venue
+   
   }
 `;
 
