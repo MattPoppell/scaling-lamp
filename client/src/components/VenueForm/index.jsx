@@ -25,16 +25,16 @@ const VenueForm = () => {
     try {
       const { data } = await addVenue({
         variables: {
-          venueText,
-          venueState,
-          venueCity,
-          venueCapacity: parseInt(venueCapacity),
-          venueCatering,
-          venueBarsNearby,
-          preferredGenre,
-          venueAuthor: Auth.getProfile().data.username,
+          name: venueText,
+          city: venueCity,
+          state: venueState,
+          capacity: parseInt(venueCapacity),
+          preferredGenre: preferredGenre,
+          catering: venueCatering,
+          barsNearby: venueBarsNearby,
         },
       });
+      
 
       // Reset form fields after submission
       setVenueText('');
