@@ -25,59 +25,127 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_VENUE = gql`
-  mutation addVenue($venueText: String!) {
-    addVenue(venueText: $venueText) {
+mutation AddVenue($name: String!, $city: String, $state: String, $capacity: String, $preferredGenre: String, $catering: Boolean, $barsNearby: Boolean) {
+  addVenue(name: $name, city: $city, state: $state, capacity: $capacity, preferredGenre: $preferredGenre, catering: $catering, barsNearby: $barsNearby) {
+    _id
+    name
+    city
+    state
+    capacity
+    preferredGenre
+    catering
+    barsNearby
+    comments {
       _id
-      venueText
-      venueAuthor
+      commentText
+      commentAuthor
       createdAt
-      comments {
-        _id
-        commentText
-      }
     }
   }
+}
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($venueId: ID!, $commentText: String!) {
-    addComment(venueId: $venueId, commentText: $commentText) {
+mutation AddComment($venueId: ID!, $commentText: String!) {
+  addComment(venueId: $venueId, commentText: $commentText) {
+    _id
+    name
+    city
+    state
+    capacity
+    preferredGenre
+    catering
+    barsNearby
+    comments {
       _id
-      venueText
-      venueAuthor
+      commentText
+      commentAuthor
       createdAt
-      comments {
-        _id
-        commentText
-        createdAt
-      }
     }
   }
+}
 `;
+
 export const REMOVE_COMMENT = gql`
-  mutation removeComment($venueId: ID!, $commentText: String!) {
-    removeComment(venueId: $venueId) {
+mutation RemoveComment($venueId: ID!, $commentId: ID!) {
+  removeComment(venueId: $venueId, commentId: $commentId) {
+    _id
+    name
+    city
+    state
+    capacity
+    preferredGenre
+    catering
+    barsNearby
+    comments {
       _id
-      
-      comments {
-        _id
-        commentText
-        createdAt
-      }
+      commentText
+      commentAuthor
+      createdAt
     }
   }
+}
 `;
 
 export const REMOVE_VENUE = gql`
-  mutation removeVenue($venueId: ID!, $commentText: String!) {
-    removeVenue(venueId: $venueId) {
+mutation RemoveVenue($venueId: ID!) {
+  removeVenue(venueId: $venueId) {
+    _id
+    name
+    city
+    state
+    capacity
+    preferredGenre
+    catering
+    barsNearby
+    comments {
       _id
-      
-      comments {
-        _id
-        commentText
-        createdAt
-      }
+      commentText
+      commentAuthor
+      createdAt
     }
   }
+}
+`;
+
+export const UPDATE_VENUE = gql`
+mutation UpdateVenue($venueId: ID!, $name: String, $city: String, $capacity: String, $preferredGenre: String, $catering: Boolean, $barsNearby: Boolean, $state: String) {
+  updateVenue(venueId: $venueId, name: $name, city: $city, capacity: $capacity, preferredGenre: $preferredGenre, catering: $catering, barsNearby: $barsNearby, state: $state) {
+    _id
+    name
+    city
+    state
+    capacity
+    preferredGenre
+    catering
+    barsNearby
+    comments {
+      _id
+      commentText
+      commentAuthor
+      createdAt
+    }
+  }
+}
+`;
+
+export const UPDATE_COMMENT = gql`
+mutation UpdateComment($venueId: ID!, $commentId: ID!, $updatedCommentText: String!) {
+  updateComment(venueId: $venueId, commentId: $commentId, updatedCommentText: $updatedCommentText) {
+    _id
+    name
+    city
+    state
+    capacity
+    preferredGenre
+    catering
+    barsNearby
+    comments {
+      _id
+      commentText
+      commentAuthor
+      createdAt
+    }
+  }
+}
 `;
