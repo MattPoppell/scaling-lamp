@@ -56,3 +56,13 @@ h2 {
     margin: 20px;
   }
   
+  .login-message {
+    color: #ff6347; /* Red color */
+    font-size: 18px;
+    font-weight: bold; /* Making the text bold */
+    padding: 15px; /* Adding padding for spacing inside the box */
+    border: 2px solid #ff6347; /* Adding a border */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 20px;
+    background-color: white; /* Adding white background color */
+  }

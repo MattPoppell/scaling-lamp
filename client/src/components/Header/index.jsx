@@ -1,7 +1,7 @@
-// Header.js
+
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
-import './Header.css'; // Import your CSS file for header styles
+import './Header.css'; 
 
 const Header = () => {
   const logout = (event) => {
