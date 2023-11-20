@@ -88,15 +88,22 @@ mutation RemoveComment($venueId: ID!, $commentId: ID!) {
 `;
 
 export const REMOVE_VENUE = gql`
-  mutation removeVenue($venueId: ID!, $commentText: String!) {
-    removeVenue(venueId: $venueId) {
+mutation RemoveVenue($venueId: ID!) {
+  removeVenue(venueId: $venueId) {
+    _id
+    name
+    city
+    state
+    capacity
+    preferredGenre
+    catering
+    barsNearby
+    comments {
       _id
-      
-      comments {
-        _id
-        commentText
-        createdAt
-      }
+      commentText
+      commentAuthor
+      createdAt
     }
   }
+}
 `;
