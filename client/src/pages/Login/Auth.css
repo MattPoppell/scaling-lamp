@@ -1,51 +1,56 @@
-/* AuthForm.css */
+/* Auth.css */
 
 /* Container styles */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to the top */
+  height: 100vh;
+  padding-top: 50px; /* Add padding at the top */
+}
 
+/* Card styles */
+.auth-card {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
 
-    
-  /* Card styles */
-  .auth-card {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-  }
-  
-  /* Form input styles */
-  .form-input {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    color: #333;
-  }
-  
-  /* Submit button style */
-  .submit-btn {
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 18px;
-    text-transform: uppercase;
-  }
-  
-  .submit-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Error message style */
-  .error-message {
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #f8d7da;
-    color: #721c24;
-    border-radius: 5px;
-  }
-  
+/* Form input styles */
+.form-input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Submit button style */
+.submit-btn {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 18px;
+  text-transform: uppercase;
+  display: flex;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Error message style */
+.error-message {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border-radius: 5px;
+}

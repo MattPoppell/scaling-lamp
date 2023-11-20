@@ -2,6 +2,14 @@
 
   
   /* Signup card styles */
+  .signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to the top */
+    height: 100vh;
+    padding-top: 50px; /* Add padding at the top */
+  }
+  
   .signup-card {
     width: 300px;
     padding: 20px;

@@ -16,7 +16,7 @@ venues,
       {showTitle && <h3>{title}</h3>}
       {venue &&
         venues.map((venue) => (
-          <div key={thought._id} className="card mb-3">
+          <div key={venue._id} className="card mb-3">
             <h4 className="card-header bg-primary text-light p-2 m-0">
               {showUsername ? (
                 <Link
