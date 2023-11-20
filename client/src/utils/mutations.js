@@ -107,3 +107,24 @@ mutation RemoveVenue($venueId: ID!) {
   }
 }
 `;
+
+export const UPDATE_VENUE = gql`
+mutation UpdateVenue($venueId: ID!, $name: String, $city: String, $capacity: String, $preferredGenre: String, $catering: Boolean, $barsNearby: Boolean, $state: String) {
+  updateVenue(venueId: $venueId, name: $name, city: $city, capacity: $capacity, preferredGenre: $preferredGenre, catering: $catering, barsNearby: $barsNearby, state: $state) {
+    _id
+    name
+    city
+    state
+    capacity
+    preferredGenre
+    catering
+    barsNearby
+    comments {
+      _id
+      commentText
+      commentAuthor
+      createdAt
+    }
+  }
+}
+`;
