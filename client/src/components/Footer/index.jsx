@@ -1,27 +1,21 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import './Footer.css'; // Import your CSS file for footer styles
 
 const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
-      <div className="container text-center mb-5">
+    <footer className="main-footer">
+      <div className="footer-content">
         {location.pathname !== '/' && (
-          <button
-            className="btn btn-dark mb-3"
-            onClick={() => navigate(-1)}
-          >
+          <button className="back-btn" onClick={() => navigate(-1)}>
             &larr; Go Back
           </button>
         )}
-        <h4>
-          Made with{' '}
-          <span
-            className="emoji"
-            role="img"
-            aria-label="heart"
-            aria-hidden="false"
-          >
+        <h4 className="made-with">
+          Made by future software developers with{' '}
+          <span role="img" aria-label="heart">
             ❤️
           </span>{' '}
           by the MSDZ.

@@ -25,18 +25,24 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_VENUE = gql`
-  mutation addVenue($venueText: String!) {
-    addVenue(venueText: $venueText) {
+mutation AddVenue($name: String!, $city: String, $state: String, $capacity: String, $preferredGenre: String, $catering: Boolean, $barsNearby: Boolean) {
+  addVenue(name: $name, city: $city, state: $state, capacity: $capacity, preferredGenre: $preferredGenre, catering: $catering, barsNearby: $barsNearby) {
+    _id
+    name
+    city
+    state
+    capacity
+    preferredGenre
+    catering
+    barsNearby
+    comments {
       _id
-      venueText
-      venueAuthor
+      commentText
+      commentAuthor
       createdAt
-      comments {
-        _id
-        commentText
-      }
     }
   }
+}
 `;
 
 export const ADD_COMMENT = gql`

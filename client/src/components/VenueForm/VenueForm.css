@@ -1,0 +1,56 @@
+/* VenueForm Component Styles */
+/* VenueForm Component Styles */
+
+.venue-form-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .venue-form-container h3 {
+    color: #1a237e;
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  .venue-form-container p {
+    color: #424242;
+  }
+  
+  .venue-form-container textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .venue-form-container .character-count {
+    color: #555;
+  }
+  
+  .venue-form-container .submit-button {
+    background-color: #1a237e;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .venue-form-container .submit-button:hover {
+    background-color: #0d114f;
+  }
+  
+  .venue-form-container .error-message {
+    color: #ff0000;
+    margin-top: 10px;
+  }
+  
