@@ -51,7 +51,7 @@ const VenueForm = () => {
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
-
+  
     if (type === 'checkbox') {
       if (name === 'venueCatering') {
         setVenueCatering(checked);
@@ -59,7 +59,7 @@ const VenueForm = () => {
         setVenueBarsNearby(checked);
       }
     } else {
-
+  
       if (name === 'venueText' || name === 'venueCity') {
         // Limit character count for certain fields if needed
         if (value.length <= 280) {
@@ -68,7 +68,8 @@ const VenueForm = () => {
           setCharacterCount(value.length);
         }
       } else if (name === 'venueCapacity') {
-        setVenueCapacity(value);
+        // Parse the value as an integer
+        setVenueCapacity(parseInt(value));
       } else if (name === 'venueState') {
         setVenueState(value);
       } else if (name === 'preferredGenre') {
@@ -76,6 +77,7 @@ const VenueForm = () => {
       }
     }
   };
+  
 
   const usStates = [
     'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida',
