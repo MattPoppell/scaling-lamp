@@ -1,37 +1,41 @@
+// Header.js
 import { Link } from 'react-router-dom';
-
 import Auth from '../../utils/auth';
+import './Header.css'; // Import your CSS file for header styles
 
 const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
+
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
-          <Link className="text-light" to="/">
-            <h1 className="m-0">Tour Finder</h1>
+    <header className="app-header">
+      <div className="container header-content">
+        <div className="header-left">
+          <Link className="logo-link" to="/">
+            <h1 className="app-title">Tour Finder</h1>
           </Link>
-          <p className="m-0">The ultimate tour finder app designed to assist bands in selecting a perfect venue for their performances..</p>
+          <p className="app-description">
+            The ultimate tour finder app for bands to discover the perfect venues.
+          </p>
         </div>
-        <div>
+        <div className="header-right">
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
-                {Auth.getProfile().data.username}'s profile
+              <Link className="btn" to="/me">
+                Profile
               </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              <button className="btn" onClick={logout}>
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+              <Link className="btn" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link className="btn" to="/signup">
                 Signup
               </Link>
             </>

@@ -1,27 +1,37 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-} */
 
-navbar h1 {
-    position: absolute;
-    top: 0;
-    left: 20px;
-  }
-  
-  .container {
-    font-size: 13px;
-    /* border: 5px solid white; */
-  }
-  
-  .form input {
-    display: block;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 100%;
-  }
-  
-  #links {
-    justify-content: right;
-  }
+/* You can also apply styles to the root app container if you prefer */
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('https://m.media-amazon.com/images/I/61LdPuNtRdL.jpg');
+  font-family: Arial, sans-serif;
+  /* Other global styles */
+}
+
+/* Styles for the Signup Component */
+.signup-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  background-image: url('https://media.istockphoto.com/id/502194861/photo/love-from-a-loyal-fan.jpg?s=612x612&w=0&k=20&c=olCnub58M7a_nN_RREJ2BDwWZanlnUaIPfxEOhccK1Y=');
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Styles for the Auth Component */
+.auth-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100vh;
+  padding: 20px;
+  background-image: url('https://staticg.sportskeeda.com/editor/2023/05/e2252-16849254927021-1920.jpg?w=840');
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+}

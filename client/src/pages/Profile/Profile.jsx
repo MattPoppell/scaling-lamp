@@ -1,12 +1,13 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import VenueForm from '../components/VenueForm';
-import VenueList from '../components/VenueList';
+import VenueForm from '../../components/VenueForm';
+import VenueList from '../../components/VenueList';
 
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
+import './Profile.css';
 
 const Profile = () => {
   const { username: userParam } = useParams();
@@ -43,8 +44,8 @@ const Profile = () => {
 
         <div className="col-12 col-md-10 mb-5">
           <VenueList
-            thoughts={user.thoughts}
-            title={`${user.username}'s thoughts...`}
+            venues={user.venuess}
+            title={`${user.username}'s venues...`}
             showTitle={false}
             showUsername={false}
           />
