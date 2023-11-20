@@ -191,12 +191,20 @@ const VenueForm = () => {
             </div>
 
             {/* Submit button */}
-            <button
-              className="bg-blue-500 text-white px-4 py-2 rounded-md submit-btn"
-              type="submit"
-            >
-              Add Venue
-            </button>
+            <div className="button-container flex space-x-4">
+              <button
+                className="bg-blue-500 text-white px-4 py-2 rounded-md submit-btn"
+                type="submit"
+              >
+                Add Venue
+              </button>
+              <button
+                className="bg-blue-500 text-white px-4 py-2 rounded-md submit-btn"
+                type="button"
+              >
+                Find Venue
+              </button>
+            </div>
           </form>
 
           {error && (
