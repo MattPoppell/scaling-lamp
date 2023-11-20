@@ -67,17 +67,24 @@ mutation AddComment($venueId: ID!, $commentText: String!) {
 `;
 
 export const REMOVE_COMMENT = gql`
-  mutation removeComment($venueId: ID!, $commentText: String!) {
-    removeComment(venueId: $venueId) {
+mutation RemoveComment($venueId: ID!, $commentId: ID!) {
+  removeComment(venueId: $venueId, commentId: $commentId) {
+    _id
+    name
+    city
+    state
+    capacity
+    preferredGenre
+    catering
+    barsNearby
+    comments {
       _id
-      
-      comments {
-        _id
-        commentText
-        createdAt
-      }
+      commentText
+      commentAuthor
+      createdAt
     }
   }
+}
 `;
 
 export const REMOVE_VENUE = gql`
