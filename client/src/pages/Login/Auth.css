@@ -1,19 +1,18 @@
-/* AuthForm.css */
 
-/* Container styles */
+
+
 
 
     
-  /* Card styles */
-  .auth-card {
+
+ .auth-card {
     width: 300px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
   }
-  
-  /* Form input styles */
+ 
   .form-input {
     margin-bottom: 15px;
     padding: 10px;
@@ -23,7 +22,7 @@
     color: #333;
   }
   
-  /* Submit button style */
+ 
   .submit-btn {
     padding: 12px 20px;
     background-color: #007bff;
@@ -40,7 +39,7 @@
     background-color: #0056b3;
   }
   
-  /* Error message style */
+
   .error-message {
     margin: 10px 0;
     padding: 10px;

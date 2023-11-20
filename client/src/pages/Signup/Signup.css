@@ -1,7 +1,7 @@
-/* Signup.css */
+
 
   
-  /* Signup card styles */
+ 
   .signup-card {
     width: 300px;
     padding: 20px;
@@ -51,10 +51,10 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    color: #333; /* Text color */
+    color: #333; 
   }
   
-  /* Signup button style */
+ 
   .submit-btn {
     padding: 12px 20px;
     background-color: #007bff;
@@ -63,8 +63,8 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    font-size: 18px; /* Button text size */
-    text-transform: uppercase; /* Convert text to uppercase */
+    font-size: 18px; 
+    text-transform: uppercase; 
   }
   
   .submit-btn:hover {
