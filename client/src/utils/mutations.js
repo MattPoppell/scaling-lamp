@@ -128,3 +128,24 @@ mutation UpdateVenue($venueId: ID!, $name: String, $city: String, $capacity: Str
   }
 }
 `;
+
+export const UPDATE_COMMENT = gql`
+mutation UpdateComment($venueId: ID!, $commentId: ID!, $updatedCommentText: String!) {
+  updateComment(venueId: $venueId, commentId: $commentId, updatedCommentText: $updatedCommentText) {
+    _id
+    name
+    city
+    state
+    capacity
+    preferredGenre
+    catering
+    barsNearby
+    comments {
+      _id
+      commentText
+      commentAuthor
+      createdAt
+    }
+  }
+}
+`;
