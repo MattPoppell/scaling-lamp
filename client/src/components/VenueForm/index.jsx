@@ -52,6 +52,7 @@ const VenueForm = () => {
       setShowButtons(true); // Show the buttons again after submission
     } catch (err) {
       console.error(err);
+
     }
   };
 
