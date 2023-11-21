@@ -1,15 +1,13 @@
-/* Auth.css */
 
-/* Container styles */
 .auth-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Align to the top */
+  align-items: flex-start; 
   height: 100vh;
-  padding-top: 50px; /* Add padding at the top */
+  padding-top: 50px; 
 }
 
-/* Card styles */
+
 .auth-card {
   width: 300px;
   padding: 20px;
@@ -18,7 +16,7 @@
   background-color: #fff;
 }
 
-/* Form input styles */
+
 .form-input {
   margin-bottom: 15px;
   padding: 10px;
@@ -28,7 +26,7 @@
   color: #333;
 }
 
-/* Submit button style */
+
 .submit-btn {
   padding: 12px 20px;
   background-color: #007bff;
@@ -47,7 +45,7 @@
   background-color: #0056b3;
 }
 
-/* Error message style */
+
 .error-message {
   margin: 10px 0;
   padding: 10px;

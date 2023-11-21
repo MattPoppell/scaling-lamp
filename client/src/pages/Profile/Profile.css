@@ -6,7 +6,7 @@ h2 {
     text-align: center;
   }
   
-  /* Profile section */
+ 
   .profile-section {
     display: flex;
     flex-direction: column;
@@ -14,7 +14,7 @@ h2 {
     margin-bottom: 2rem;
   }
   
-  /* Container for thoughts */
+  
   .venue-list-container {
     border: 1px solid #ccc;
     padding: 1.5rem;
@@ -23,7 +23,7 @@ h2 {
     max-width: 800px;
   }
   
-  /* Venue form */
+ 
   .venue-form {
     border: 1px dashed #ccc;
     padding: 1.5rem;
@@ -31,28 +31,38 @@ h2 {
     max-width: 800px;
   }
   
-  /* Loading indicator */
+ 
   .loading-message {
     text-align: center;
     font-size: 1.2rem;
     margin-top: 3rem;
   }
   
-  /* Message when user is not logged in */
+ 
   .not-logged-in-message {
     text-align: center;
     font-size: 1.2rem;
     margin-top: 3rem;
   }
-  /* profile.css */
+  
 
 .profile-message {
     font-size: 18px;
-    color: #fff; /* Change text color to white */
+    color: #fff;
     text-align: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8); /* Add a semi-transparent black background */
+    background-color: rgba(0, 0, 0, 0.8); 
     border-radius: 8px;
     margin: 20px;
   }
   
+  .login-message {
+    color: #ff6347; 
+    font-size: 18px;
+    font-weight: bold; 
+    padding: 15px; 
+    border: 2px solid #ff6347; 
+    border-radius: 5px; 
+    margin-bottom: 20px;
+    background-color: white; 
+  }

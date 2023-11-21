@@ -1,30 +1,38 @@
-/* Footer Styles */
 
-  .back-btn {
-    padding: 8px 16px;
-    border: none;
-    background-color: #fff; /* Adjust to your button colors */
-    color: orangered; /* Adjust to your button text color */
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
-  
-  .made-with {
-    font-size: 20px;
-  }
-  
+
+
   .main-footer {
     width: 100%;
-    padding: 20px 0;
-    background-color: lightblue;
-    color: #fff; 
-    position: absolute;
+    padding: 10px 0;
+    background-color: rgb(78, 174, 206);
+    color: #1e1111;
+    position: fixed;
     bottom: 0;
     left: 0;
-  }
-  
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+}
+
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.back-btn {
+  padding: 8px 16px;
+  border: 1px solid orangered; 
+  background-color: #fff;
+  color: orangered;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.back-btn:hover {
+  background-color: orangered;
+  color: #fff; 
+}
+
+
+
+.made-with {
+  font-size: 20px;
+}
