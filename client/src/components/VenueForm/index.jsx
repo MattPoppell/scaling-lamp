@@ -124,7 +124,6 @@ const VenueForm = () => {
         <form onSubmit={handleFormSubmit}>
          {/* Venue Form */}
       {showVenueForm && (
-        <form onSubmit={handleFormSubmit}>
           <textarea
             name="venueText"
             placeholder="Enter venue name..."
@@ -134,7 +133,7 @@ const VenueForm = () => {
             onChange={handleChange}
           ></textarea>
 
-          {/* Character count limit */}
+          )/* Character count limit */}
           <p className={`mb-2 ${characterCount === 280 || error ? 'text-red-500' : 'text-gray-500'}`}>
             Character Count: {characterCount}/280
           </p>
@@ -219,19 +218,15 @@ const VenueForm = () => {
             </label>
           </div>
 
-    
-          
-        </form>
-      )}
           <button
             className="bg-blue-500 text-white px-4 py-2 rounded-md submit-btn"
             type="submit"
           >
             Submit Venue
           </button>
+          
         </form>
       )}
-
 
       {error && (
         <div className="text-white bg-red-500 py-2 px-4 rounded-md mt-4">
