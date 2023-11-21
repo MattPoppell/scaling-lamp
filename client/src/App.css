@@ -1,13 +1,13 @@
-
-/* You can also apply styles to the root app container if you prefer */
-
-
 body {
   margin: 0;
   padding: 0;
   background-image: url('https://m.media-amazon.com/images/I/61LdPuNtRdL.jpg');
   font-family: Arial, sans-serif;
-  /* Other global styles */
+  background-repeat: no-repeat;
+  background-size: auto;
+  object-fit: cover;
+  background-size: cover;
+ 
 }
 
 /* Styles for the Signup Component */
@@ -21,6 +21,7 @@ body {
   background-size: cover;
   background-position: center;
   font-family: Arial, sans-serif;
+  background-attachment: fixed;
 }
 
 /* Styles for the Auth Component */
@@ -34,4 +35,12 @@ body {
   background-size: cover;
   background-position: center;
   font-family: Arial, sans-serif;
+  background-attachment: fixed;
+}
+
+#pageContainer {
+  max-width: unset;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }

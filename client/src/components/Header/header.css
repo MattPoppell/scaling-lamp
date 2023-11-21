@@ -1,11 +1,11 @@
-/* Header.css */
 
-/* Header Styles */
+
+
 .app-header {
-    background-color: #f0f0f0; /* Adjust to your header background color */
+    background-color: #f0f0f0; 
     padding: 20px 0;
     text-align: center;
-    border-bottom: 2px solid #ddd; /* Add a border for separation */
+    border-bottom: 2px solid #ddd; 
   }
   
   .container {
@@ -26,21 +26,14 @@
   
   .logo-link {
     text-decoration: none;
-    color: #333; /* Adjust to your link color */
+    color: #333; 
   }
   
   .app-title {
     margin: 0;
     font-size: 50px;
     font-weight: bold;
-    color: rgb(78, 132, 150); /* Adjust to your title color */
-  }
-  
-  .app-description {
-    font-size: 18px;
-    color: rgb(78, 174, 206); 
-    margin-top: 10px;
-    line-height: 1.5;
+    color: rgb(78, 132, 150); 
   }
   
   .header-right {
@@ -64,4 +57,14 @@
   
   .btn:hover {
     background-color: #555; 
+  }
+  .app-description {
+    font-size: 18px;
+    color: rgb(78, 174, 206);
+    margin-top: 10px;
+    line-height: 1.5;
+    font-style: italic; 
+    text-align: center; 
+    max-width: 600px; 
+    margin: 10px auto; 
   }
