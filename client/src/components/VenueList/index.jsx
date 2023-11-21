@@ -17,7 +17,7 @@ const VenueList = ({
       {venues.map((venue) => (
         <div key={venue._id} className="card mb-3">
           <h4 className="card-header bg-primary text-light p-2 m-0">
-            {showUsername ? (
+            {/* {showUsername ? (
               <Link
                 className="text-light"
                 to={`/profiles/${venue.venueAuthor}`}
@@ -33,13 +33,13 @@ const VenueList = ({
                   You found this venue on {venue.createdAt}
                 </span>
               </>
-            )}
+            )} */}
           </h4>
           <div className="card-body bg-light p-2">
-            <p>Venue Name: {venue.venueText}</p>
-            <p>City: {venue.venueCity}</p>
-            <p>State: {venue.venueState}</p>
-            <p>Capacity: {venue.venueCapacity}</p>
+            <p>Venue Name: {venue.name}</p>
+            <p>City: {venue.city}</p>
+            <p>State: {venue.state}</p>
+            <p>Capacity: {venue.capacity}</p>
             <p>Preferred Genre: {venue.preferredGenre}</p>
             <p>Catering: {venue.venueCatering ? 'Yes' : 'No'}</p>
             <p>Bars Nearby: {venue.venueBarsNearby ? 'Yes' : 'No'}</p>
