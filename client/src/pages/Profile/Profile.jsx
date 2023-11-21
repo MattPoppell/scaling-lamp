@@ -41,11 +41,16 @@ const Profile = () => {
         <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
+        <h3>${user.username} </h3>
+        <br/>
+        <h3>${user.email}</h3>
+        <br/>
+        
 
         <div className="col-12 col-md-10 mb-5">
           <VenueList
-            venues={user.venuess}
-            title={`${user.username}'s venues...`}
+            venues={user.venues}
+            title={`${user.username}'s contributions`}
             showTitle={false}
             showUsername={false}
           />

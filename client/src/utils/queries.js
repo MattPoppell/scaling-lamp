@@ -163,12 +163,6 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      venues {
-        _id
-        venueText
-        venueAuthor
-        createdAt
-      }
     }
   }
 `;

@@ -26,7 +26,7 @@ const Home = () => {
           ) : (
             <VenueList
               venues={venues}
-              title="Liked the venue???"
+              title="The Big List"
             />
           )}
         </div>
