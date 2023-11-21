@@ -25,7 +25,7 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_VENUE = gql`
-mutation AddVenue($name: String, $city: String, $state: String, $capacity: integer, $preferredGenre: String, $catering: Boolean, $barsNearby: Boolean) {
+mutation AddVenue($name: String, $city: String, $state: String, $capacity: String, $preferredGenre: String, $catering: Boolean, $barsNearby: Boolean) {
   addVenue(name: $name, city: $city, state: $state, capacity: $capacity, preferredGenre: $preferredGenre, catering: $catering, barsNearby: $barsNearby) {
     _id
     name

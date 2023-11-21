@@ -25,7 +25,7 @@ const Home = () => {
             <div>Loading...</div>
           ) : (
             <VenueList
-              venue={venues}
+              venues={venues}
               title="Liked the venue???"
             />
           )}
