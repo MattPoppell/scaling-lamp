@@ -1,33 +1,43 @@
-// VenueList.jsx
-
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import './VenueList.css';
 
-const VenueList = ({ venues, title }) => {
+const VenueList = ({ venues }) => {
   if (!venues || !venues.length) {
-    return <h3>{title}</h3>;
+    return <p>No venues found.</p>;
   }
 
   return (
     <div>
+    <div className="venue-list">
       {venues.map((venue) => (
-        <div key={venue._id} className="card mb-3">
-          <div className="card-body bg-light p-2">
-            <p>Venue Name: {venue.name}</p>
-            <p>City: {venue.city}</p>
-            <p>State: {venue.state}</p>
-            {/* Add other venue details as needed */}
-          </div>
-          <Link
-            className="btn btn-primary btn-block btn-squared"
-            to={`/venues/${venue._id}`}
-          >
-            Join the discussion on this venue.
-          </Link>
+        <div key={venue.id}>
+          <p>Name: {venue.name}</p>
+          <p>State: {venue.state}</p>
+          <p>City: {venue.city}</p>
+          <p>Capacity: {venue.capacity}</p>
+          <p>Preferred Genre: {venue.preferredGenre}</p>
+          <p>Catering: {venue.catering ? 'Yes' : 'No'}</p>
+          <p>Bars Nearby: {venue.barsNearby ? 'Yes' : 'No'}</p>
         </div>
       ))}
     </div>
   );
+};
+
+VenueList.propTypes = {
+  venues: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      state: PropTypes.string.isRequired,
+      city: PropTypes.string.isRequired,
+      capacity: PropTypes.number.isRequired,
+      preferredGenre: PropTypes.string.isRequired,
+      catering: PropTypes.bool.isRequired,
+      barsNearby: PropTypes.bool.isRequired,
+    })
+  ).isRequired,
 };
 
 export default VenueList;
