@@ -1,59 +1,42 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
+import PropTypes from 'prop-types';
+import './VenueList.css';
 
-const VenueList = ({
-  venues,
-  title,
-  showTitle,
-  showName = true,
-  showUsername = true,
-}) => {
+const VenueList = ({ venues }) => {
   if (!venues || !venues.length) {
-    return <h3>No Venue Yet</h3>;
+    return <p>No venues found.</p>;
   }
 
   return (
-    <div>
-      {showTitle && <h3>{title}</h3>}
+    <div className="venue-list">
       {venues.map((venue) => (
-        <div key={venue._id} className="card mb-3">
-          <h4 className="card-header bg-primary text-light p-2 m-0">
-            {/* {showUsername ? (
-              <Link
-                className="text-light"
-                to={`/profiles/${venue.venueAuthor}`}
-              >
-                {venue.venueAuthor} <br />
-                <span style={{ fontSize: '1rem' }}>
-                  had this venue on {venue.createdAt}
-                </span>
-              </Link>
-            ) : (
-              <>
-                <span style={{ fontSize: '1rem' }}>
-                  You found this venue on {venue.createdAt}
-                </span>
-              </>
-            )} */}
-          </h4>
-          <div className="card-body bg-light p-2">
-            <p>Venue Name: {venue.name}</p>
-            <p>City: {venue.city}</p>
-            <p>State: {venue.state}</p>
-            <p>Capacity: {venue.capacity}</p>
-            <p>Preferred Genre: {venue.preferredGenre}</p>
-            <p>Catering: {venue.venueCatering ? 'Yes' : 'No'}</p>
-            <p>Bars Nearby: {venue.venueBarsNearby ? 'Yes' : 'No'}</p>
-          </div>
-          <Link
-            className="btn btn-primary btn-block btn-squared"
-            to={`/venues/${venue._id}`}
-          >
-            Join the discussion on this venue.
-          </Link>
+        <div key={venue.id}>
+          <p>Name: {venue.name}</p>
+          <p>State: {venue.state}</p>
+          <p>City: {venue.city}</p>
+          <p>Capacity: {venue.capacity}</p>
+          <p>Preferred Genre: {venue.preferredGenre}</p>
+          <p>Catering: {venue.catering ? 'Yes' : 'No'}</p>
+          <p>Bars Nearby: {venue.barsNearby ? 'Yes' : 'No'}</p>
         </div>
       ))}
     </div>
   );
+};
+
+VenueList.propTypes = {
+  venues: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      state: PropTypes.string.isRequired,
+      city: PropTypes.string.isRequired,
+      capacity: PropTypes.number.isRequired,
+      preferredGenre: PropTypes.string.isRequired,
+      catering: PropTypes.bool.isRequired,
+      barsNearby: PropTypes.bool.isRequired,
+    })
+  ).isRequired,
 };
 
 export default VenueList;

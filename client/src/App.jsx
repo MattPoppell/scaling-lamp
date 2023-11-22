@@ -10,7 +10,7 @@ import { Outlet } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-
+import VenueList from './components/VenueList';
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -35,6 +35,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
+
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -42,6 +44,7 @@ function App() {
         <Header />
         <div className="container" id='pageContainer'>
           <Outlet />
+          <VenueList />
         </div>
         <Footer />
       </div>
