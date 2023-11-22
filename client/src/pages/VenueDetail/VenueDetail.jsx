@@ -21,7 +21,6 @@ const VenueDetail = () => {
 
   return (
     <div className="venue-detail-container">
-      <p>Venue ID: {venueId}</p>
       <p>Name: {venue.name}</p>
       <p>State: {venue.state}</p>
       <p>City: {venue.city}</p>
@@ -30,12 +29,11 @@ const VenueDetail = () => {
       <p>Catering: {venue.catering ? 'Yes' : 'No'}</p>
       <p>Bars Nearby: {venue.barsNearby ? 'Yes' : 'No'}</p>
 
-      {/* CommentForm centered in the middle */}
       <div className="comment-section">
         <CommentForm venueId={venueId} />
       </div>
 
-      {/* CommentList below CommentForm */}
+     
       <CommentList comments={venue.comments} />
     </div>
   );

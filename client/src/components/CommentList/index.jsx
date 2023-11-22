@@ -30,8 +30,8 @@ const CommentList = ({ comments = [] }) => {
                 </h5>
                 <p className="card-body">{comment.commentText}</p>
               </div>
-              <button>Delete</button>
-              <button>Update</button>
+              <button className='submit-btn'>Delete</button>
+              <button className='submit-btn'>Update</button>
             </div>
           ))}
       </div>
