@@ -15,12 +15,7 @@ const VenueList = ({ venues }) => {
           <p>Name: {venue.name}</p>
           <p>State: {venue.state}</p>
           <p>City: {venue.city}</p>
-          <p>Capacity: {venue.capacity}</p>
-          <p>Preferred Genre: {venue.preferredGenre}</p>
-          <p>Catering: {venue.catering ? 'Yes' : 'No'}</p>
-          <p>Bars Nearby: {venue.barsNearby ? 'Yes' : 'No'}</p>
-          <button className="submit-btn">Add Comment</button>
-          <button className="submit-btn">View Comment</button>
+          <button className="submit-btn">Take a closer look at this Venue</button>
         </div>
       ))}
     </div>
