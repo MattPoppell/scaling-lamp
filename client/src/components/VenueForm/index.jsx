@@ -5,7 +5,7 @@ import { QUERY_VENUES, QUERY_ME } from '../../utils/queries';
 import './VenueForm.css';
 
 const VenueForm = () => {
-  const [venueText, setVenueText] = useState('');
+  const [venueName, setVenueName] = useState('');
   const [venueState, setVenueState] = useState('');
   const [venueCity, setVenueCity] = useState('');
   const [venueCapacity, setVenueCapacity] = useState('');
@@ -28,20 +28,21 @@ const VenueForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      await addVenue({
+      const result = await addVenue({
         variables: {
-          name: venueText,
+          name: venueName,
           city: venueCity,
           state: venueState,
-          capacity: parseInt(venueCapacity),
+          capacity: venueCapacity,
           preferredGenre: preferredGenre,
           catering: venueCatering,
           barsNearby: venueBarsNearby,
         },
       });
-
-      // Reset form fields after submission
-      setVenueText('');
+      const { data } = result;
+   
+  
+      setVenueName('');
       setVenueState('');
       setVenueCity('');
       setVenueCapacity('');
@@ -50,11 +51,12 @@ const VenueForm = () => {
       setPreferredGenre('');
       setShowVenueForm(false); // Hide form after submission
       setShowButtons(true); // Show the buttons again after submission
+      console.log(result);
     } catch (err) {
       console.error(err);
-
     }
   };
+  
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
@@ -68,10 +70,10 @@ const VenueForm = () => {
       }
     } else {
       // Handle other input changes
-      if (name === 'venueText' || name === 'venueCity') {
+      if (name === 'venueName' || name === 'venueCity') {
         // Limit character count for certain fields if needed
         if (value.length <= 280) {
-          if (name === 'venueText') setVenueText(value);
+          if (name === 'venueName') setVenueName(value);
           else if (name === 'venueCity') setVenueCity(value);
           setCharacterCount(value.length);
         }
@@ -125,9 +127,9 @@ const VenueForm = () => {
          {/* Venue Form */}
       {showVenueForm && (
           <textarea
-            name="venueText"
+            name="venueName"
             placeholder="Enter venue name..."
-            value={venueText}
+            value={venueName}
             className="form-input w-full px-4 py-2 border border-gray-300 rounded-md mb-4"
             style={{ lineHeight: '1.5', resize: 'vertical' }}
             onChange={handleChange}
