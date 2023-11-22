@@ -21,7 +21,6 @@ const VenueDetail = () => {
 
   return (
     <div className="venue-detail-container">
-      <p>Venue ID: {venueId}</p>
       <p>Name: {venue.name}</p>
       <p>State: {venue.state}</p>
       <p>City: {venue.city}</p>
