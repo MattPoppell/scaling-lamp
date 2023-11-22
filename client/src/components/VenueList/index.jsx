@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './VenueList.css';
-
+import CommentForm from '../CommentForm';
+import CommentList from '../CommentList';
 const VenueList = ({ venues }) => {
   if (!venues || !venues.length) {
     return <p>No venues found.</p>;
@@ -18,6 +19,8 @@ const VenueList = ({ venues }) => {
           <p>Preferred Genre: {venue.preferredGenre}</p>
           <p>Catering: {venue.catering ? 'Yes' : 'No'}</p>
           <p>Bars Nearby: {venue.barsNearby ? 'Yes' : 'No'}</p>
+          <button className="submit-btn">Add Comment</button>
+          <button className="submit-btn">View Comment</button>
         </div>
       ))}
     </div>

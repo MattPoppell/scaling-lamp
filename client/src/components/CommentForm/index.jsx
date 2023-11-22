@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../../utils/mutations';
 import Auth from '../../utils/auth';
-import './CommentForm.css'; 
+import './Comment.css'; 
 
 const CommentForm = ({ venueId }) => {
   const [commentText, setCommentText] = useState('');
