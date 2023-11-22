@@ -44,7 +44,6 @@ function App() {
         <Header />
         <div className="container" id='pageContainer'>
           <Outlet />
-          <VenueList />
         </div>
         <Footer />
       </div>

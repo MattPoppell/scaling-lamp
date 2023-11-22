@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './VenueList.css';
-import CommentForm from '../CommentForm';
-import CommentList from '../CommentList';
 const VenueList = ({ venues }) => {
   if (!venues || !venues.length) {
     return <p>No venues found.</p>;
