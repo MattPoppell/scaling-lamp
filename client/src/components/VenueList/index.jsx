@@ -8,6 +8,7 @@ const VenueList = ({ venues }) => {
   }
 
   return (
+    <div>
     <div className="venue-list">
       {venues.map((venue) => (
         <div key={venue.id}>

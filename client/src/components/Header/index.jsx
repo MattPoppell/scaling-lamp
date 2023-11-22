@@ -17,7 +17,7 @@ const Header = () => {
             <h1 className="app-title">BandStage Finder</h1>
           </Link>
           <p className="app-description">
-          BandStageFinder is your go-to platform for discovering ideal venues to showcase your music. Designed for musicians and bands, this app simplifies the hunt for performance spaces. Explore a myriad of venues across locations, filter by capacity, preferred genres, amenities like catering or nearby bars, and more. Seamlessly plan your gigs, expand your reach, and elevate your performances with BandStageFinder.
+          BandStageFinder is your go-to platform for discovering ideal venues to showcase your music. Designed for musicians and bands, this app simplifies the hunt for performance spaces. Explore myriad venues across locations, filter by capacity, preferred genres, amenities like catering or nearby bars, and more. Seamlessly plan your gigs, expand your reach, and elevate your performances with BandStageFinder.
           </p>
         </div>
         <div className="header-right">
