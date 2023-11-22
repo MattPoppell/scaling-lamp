@@ -17,7 +17,10 @@ const VenueForm = () => {
   const [showButtons, setShowButtons] = useState(true);
 
   const [addVenue, { error }] = useMutation(ADD_VENUE, {
-    refetchQueries: [QUERY_VENUES, 'getVENUES', QUERY_ME, 'me'],
+    refetchQueries: [
+      { query: QUERY_VENUES },
+      { query: QUERY_ME },
+    ],
   });
 
   const handleAddVenueClick = () => {
@@ -37,11 +40,12 @@ const VenueForm = () => {
           preferredGenre: preferredGenre,
           catering: venueCatering,
           barsNearby: venueBarsNearby,
+          comments: []
         },
       });
       const { data } = result;
-   
-  
+
+
       setVenueName('');
       setVenueState('');
       setVenueCity('');
@@ -51,12 +55,11 @@ const VenueForm = () => {
       setPreferredGenre('');
       setShowVenueForm(false); // Hide form after submission
       setShowButtons(true); // Show the buttons again after submission
-      console.log(result);
     } catch (err) {
       console.error(err);
     }
   };
-  
+
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
@@ -78,8 +81,8 @@ const VenueForm = () => {
           setCharacterCount(value.length);
         }
       } else if (name === 'venueCapacity') {
-        
-        setVenueCapacity(parseInt(value));
+
+        setVenueCapacity(value);
       } else if (name === 'venueState') {
         setVenueState(value);
       } else if (name === 'preferredGenre') {
@@ -95,7 +98,7 @@ const VenueForm = () => {
     'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
     'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
   ];
- 
+
 
   return (
     <div className="venue-form-container">
@@ -121,19 +124,19 @@ const VenueForm = () => {
         </div>
       )}
 
-   
+
       {showVenueForm && (
         <form onSubmit={handleFormSubmit}>
-         {/* Venue Form */}
-      {showVenueForm && (
-          <textarea
-            name="venueName"
-            placeholder="Enter venue name..."
-            value={venueName}
-            className="form-input w-full px-4 py-2 border border-gray-300 rounded-md mb-4"
-            style={{ lineHeight: '1.5', resize: 'vertical' }}
-            onChange={handleChange}
-          ></textarea>
+          {/* Venue Form */}
+          {showVenueForm && (
+            <textarea
+              name="venueName"
+              placeholder="Enter venue name..."
+              value={venueName}
+              className="form-input w-full px-4 py-2 border border-gray-300 rounded-md mb-4"
+              style={{ lineHeight: '1.5', resize: 'vertical' }}
+              onChange={handleChange}
+            ></textarea>
 
           )/* Character count limit */}
           <p className={`mb-2 ${characterCount === 280 || error ? 'text-red-500' : 'text-gray-500'}`}>
@@ -150,13 +153,16 @@ const VenueForm = () => {
               onChange={handleChange}
               className="form-select w-full px-4 py-2 border border-gray-300 rounded-md mb-2"
             >
-              <option value="">Select a State</option>
+              <option value="" key="default">
+                Select a State
+              </option>
               {usStates.map((state) => (
                 <option key={state} value={state}>
                   {state}
                 </option>
               ))}
             </select>
+
           </div>
 
           {/* Input fields for city, capacity, catering, barsNearby */}
@@ -226,7 +232,7 @@ const VenueForm = () => {
           >
             Submit Venue
           </button>
-          
+
         </form>
       )}
 

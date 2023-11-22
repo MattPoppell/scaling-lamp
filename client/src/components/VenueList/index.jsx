@@ -10,7 +10,6 @@ const VenueList = ({ venues, title }) => {
 
   return (
     <div>
-      <h3>{title}</h3>
       {venues.map((venue) => (
         <div key={venue._id} className="card mb-3">
           <div className="card-body bg-light p-2">
