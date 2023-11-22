@@ -10,7 +10,7 @@ const VenueList = ({ venues }) => {
   return (
     <div className="venue-list">
       {venues.map((venue) => (
-        <div key={venue.id}>
+        <div key={venue.id} className='venue'>
           <p>Name: {venue.name}</p>
           <p>State: {venue.state}</p>
           <p>City: {venue.city}</p>
