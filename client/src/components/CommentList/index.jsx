@@ -1,5 +1,3 @@
-// CommentList.jsx
-
 import React from 'react';
 import './commentList.css';
 
@@ -32,6 +30,8 @@ const CommentList = ({ comments = [] }) => {
                 </h5>
                 <p className="card-body">{comment.commentText}</p>
               </div>
+              <button>Delete</button>
+              <button>Update</button>
             </div>
           ))}
       </div>
