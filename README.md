@@ -94,6 +94,11 @@ BandStageFinder serves as a centralized platform for musicians and bands to expl
 
 
 ## Screenshots
-![](./assets/images/project.pic1.png)
-![](./assets/images/project.pic2.png)
-![](./assets/images/project.pic3.png)
+![project 1_720](https://github.com/MattPoppell/scaling-lamp/assets/142950050/8a22315f-cb12-4594-9c77-ebba79a26b98)
+![project 4_720](https://github.com/MattPoppell/scaling-lamp/assets/142950050/ff775643-f8e6-4774-b81b-09c8265ccfcd)
+![project 2_720](https://github.com/MattPoppell/scaling-lamp/assets/142950050/6de0d910-8432-4d1f-b05c-9f6646a0bf1e)
+![project 3_720](https://github.com/MattPoppell/scaling-lamp/assets/142950050/cfa02dbf-138f-46fa-9b8f-537e30b61808)
+
+
+
+
