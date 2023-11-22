@@ -5,9 +5,9 @@ import App from './App.jsx';
 import Home from './pages/Home';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
-
 import Profile from './pages/Profile/Profile';
 import ErrorPage from './pages/ErrorPage'
+import VenueDetail from './pages/VenueDetail/VenueDetail.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +31,10 @@ const router = createBrowserRouter([
         path: '/me',
         element: <Profile />
       }, 
+      {
+        path: '/venue/:venueId',
+        element: <VenueDetail />
+      },
     ]
   },
 ]);

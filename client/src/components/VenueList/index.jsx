@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './VenueList.css';
+import { Link } from 'react-router-dom';
 const VenueList = ({ venues }) => {
   if (!venues || !venues.length) {
     return <p>No venues found.</p>;
@@ -8,17 +9,23 @@ const VenueList = ({ venues }) => {
 
   return (
     <div className="venue-list">
-      {venues.map((venue) => (
-        <div key={venue.id} className='venue'>
-          <p>Name: {venue.name}</p>
-          <p>State: {venue.state}</p>
-          <p>City: {venue.city}</p>
-          <button className="submit-btn">Take a closer look at this Venue</button>
-        </div>
-      ))}
+      {venues.map((venue, index) => {
+
+        return (
+          <div key={venue._id || index} className='venue'>
+            <p>Name: {venue.name}</p>
+            <p>State: {venue.state}</p>
+            <p>City: {venue.city}</p>
+            <Link to={`/venue/${venue._id}`}>
+              <button className="submit-btn" onClick={() => console.log('Clicked:', venue._id)}>Take a closer look at this Venue</button>
+            </Link>
+          </div>
+        );
+      })}
     </div>
   );
 };
+
 
 VenueList.propTypes = {
   venues: PropTypes.arrayOf(

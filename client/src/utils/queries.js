@@ -28,6 +28,7 @@ query Users {
 export const QUERY_VENUES = gql`
 query Venues {
   venues {
+    _id
     name
     city
     state
@@ -163,6 +164,26 @@ export const QUERY_ME = gql`
       _id
       username
       email
+    }
+  }
+`;
+
+export const GET_VENUE_DETAILS = gql`
+  query GetVenueDetails($venueId: ID!) {
+    venue(venueId: $venueId) {
+      _id
+      name
+      city
+      state
+      capacity
+      preferredGenre
+      catering
+      barsNearby
+      comments {
+        createdAt
+        commentText
+        commentAuthor
+      }
     }
   }
 `;

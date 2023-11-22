@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../../utils/mutations';
 import Auth from '../../utils/auth';
-import './Comment.css'; 
+import './Comment.css';
 
-const CommentForm = ({ venueId }) => {
+const CommentForm = ({ venueId, updateComments }) => {
   const [commentText, setCommentText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -22,6 +22,9 @@ const CommentForm = ({ venueId }) => {
           commentAuthor: Auth.getProfile().data.username,
         },
       });
+
+      // Update comments in VenueDetail component
+      updateComments(data.addComment);
 
       setCommentText('');
     } catch (err) {
@@ -44,9 +47,15 @@ const CommentForm = ({ venueId }) => {
 
       {Auth.loggedIn() ? (
         <>
-          <p className={`character-count ${characterCount === 280 || error ? 'text-danger' : ''}`}>
+          <p
+            className={`character-count ${
+              characterCount === 280 || error ? 'text-danger' : ''
+            }`}
+          >
             Character Count: {characterCount}/280
-            {error && <span className="error-message ml-2">{error.message}</span>}
+            {error && (
+              <span className="error-message ml-2">{error.message}</span>
+            )}
           </p>
           <form onSubmit={handleFormSubmit}>
             <textarea
