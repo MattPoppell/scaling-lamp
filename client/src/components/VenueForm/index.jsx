@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_VENUE } from '../../utils/mutations';
 import { QUERY_VENUES, QUERY_ME } from '../../utils/queries';
 import './VenueForm.css';
+import FindVenue from '../FindVenue/FindVenue';
 
 const VenueForm = () => {
   const [venueName, setVenueName] = useState('');
@@ -117,7 +118,7 @@ const VenueForm = () => {
           </button>
           <button
             className="bg-blue-500 text-white px-4 py-2 rounded-md submit-btn"
-            onClick={() => console.log('Find Venue clicked')}
+            onClick={FindVenue}
           >
             Find Venue
           </button>
