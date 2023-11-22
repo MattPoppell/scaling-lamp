@@ -28,16 +28,16 @@ const VenueList = ({ venues }) => {
 VenueList.propTypes = {
   venues: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      // id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       state: PropTypes.string.isRequired,
       city: PropTypes.string.isRequired,
-      capacity: PropTypes.number.isRequired,
-      preferredGenre: PropTypes.string.isRequired,
+      capacity: PropTypes.string.isRequired,
+      // preferredGenre: PropTypes.string.isRequired,
       catering: PropTypes.bool.isRequired,
       barsNearby: PropTypes.bool.isRequired,
     })
-  ).isRequired,
+  )//.isRequired,
 };
 
 export default VenueList;
